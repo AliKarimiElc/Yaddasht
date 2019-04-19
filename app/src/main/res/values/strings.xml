@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Yaddasht</string>
+    <string name="add_note_item_menu">Add Note</string>
+    <string name="exit_item_menu">Exit</string>
+    <string name="save_action_item">ذخیره</string>
+    <string name="erase_action_item">پاک کرن متن</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sort_item_mene">Sort</string>
+</resources>

@@ -1,0 +1,89 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 6,
+    "identityHash": "9f924b091e2257553b04d08709c9fb3a",
+    "entities": [
+      {
+        "tableName": "NoteModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`noteId` INTEGER PRIMARY KEY AUTOINCREMENT, `NoteText` TEXT, `catId` INTEGER, `CategoryName` TEXT, `CategoryColor` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "noteId",
+            "columnName": "noteId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "NoteText",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "category.catId",
+            "columnName": "catId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "category.name",
+            "columnName": "CategoryName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "category.color",
+            "columnName": "CategoryColor",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "noteId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "CategoryModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`catId` INTEGER PRIMARY KEY AUTOINCREMENT, `CategoryName` TEXT, `CategoryColor` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "catId",
+            "columnName": "catId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "CategoryName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "color",
+            "columnName": "CategoryColor",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "catId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"9f924b091e2257553b04d08709c9fb3a\")"
+    ]
+  }
+}

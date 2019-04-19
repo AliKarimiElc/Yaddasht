@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E60202</color>
+    <color name="colorPrimaryDark">#470000</color>
+    <color name="colorAccent">#B41111</color>
+    <color name="stickerPink">#F77878</color>
+    <color name="stickerYellow">#F8D166</color>
+    <color name="stickerGreen">#6AF171</color>
+    <color name="stickerOrange">#FF7A2D</color>
+    <color name="stickerWhite">#FFFFFF</color>
+    <color name="stickerBlue">#69CFFF</color>
+    <color name="mainBackground">#F0EEEE</color>
+    <color name="black">#000000</color>
+    <color name="cancelButton">#FF5E5E</color>
+    <color name="okButton">#92F589</color>
+    <color name="cancelButtonDark">#C90303</color>
+    <color name="okButtonDark">#0E8603</color>
+</resources>
