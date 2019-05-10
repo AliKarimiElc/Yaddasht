@@ -1,24 +1,38 @@
 package com.example.yaddasht.utilities.database.dao
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 import com.example.yaddasht.model.NoteModel
 
 @Dao
-abstract class NoteDao : BaseDao<NoteModel> {
+interface NoteDao{
+
+    @Insert
+    fun insert(note:NoteModel): Long
+
+    @Insert
+    fun insert(vararg note:NoteModel): List<Long>
+
+    @Delete
+    fun delete(note:NoteModel)
+
+    @Delete
+    fun delete(vararg note:NoteModel)
+
+    @Update
+    fun update(note:NoteModel)
 
     @Query("select * from NoteModel")
-    abstract fun get(): List<NoteModel>
+    fun get(): List<NoteModel>
 
     @Query("select * from NoteModel order by CategoryColor")
-    abstract fun getOrderByColor(): List<NoteModel>
+    fun getOrderByColor(): List<NoteModel>
 
     @Query("select * from NoteModel order by DateTime desc")
-    abstract fun getOrderByDateDesc(): List<NoteModel>
+    fun getOrderByDateDesc(): List<NoteModel>
 
     @Query("select * from NoteModel order by DateTime asc")
-    abstract fun getOrderByDateAsc(): List<NoteModel>
+    fun getOrderByDateAsc(): List<NoteModel>
 
     @Query("select * from NoteModel where noteId == :id")
-    abstract fun find(id: Int): NoteModel
+    fun find(id: Int): NoteModel
 }

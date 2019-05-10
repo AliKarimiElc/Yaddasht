@@ -1,6 +1,5 @@
 package com.example.yaddasht
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
@@ -14,7 +13,6 @@ import com.example.yaddasht.model.StickerColor
 import com.example.yaddasht.service.NoteService
 import com.example.yaddasht.utilities.CustomToast
 import com.example.yaddasht.utilities.DateTimeHelper
-import com.example.yaddasht.utilities.database.ApplicationRoom
 import kotlinx.android.synthetic.main.activity_note.*
 
 
@@ -34,7 +32,7 @@ class NoteActivity : AppCompatActivity() {
                 val alertDialogBuilder = AlertDialog.Builder(this)
                 alertDialogBuilder.setTitle("انتخاب رنگ")
                     .setCancelable(true)
-                alertDialogBuilder.setItems(colors, DialogInterface.OnClickListener { dialog, which ->
+                alertDialogBuilder.setItems(colors) { _, which ->
                     note.category = CategoryModel()
                     when (which) {
                         0 -> note.category?.color = StickerColor.White
@@ -46,16 +44,17 @@ class NoteActivity : AppCompatActivity() {
                     }
                     note.text = noteText.text.toString()
                     note.dateTime = DateTimeHelper.getCurrentDateTimeStringJalali()
-                    NoteService.addNote(this,note)
+                    NoteService.addNote(this, note)
                     CustomToast.toast(this, Toast.LENGTH_SHORT, Gravity.CENTER, "ذخیره انجام شد")
-                    this.finish()
-                })
+                    finish()
+                }
                 val dialog = alertDialogBuilder.create()
                 dialog.show()
 
             } else {
                 note.text = noteText.text.toString()
-                NoteService.updateNote(this,note)
+                NoteService.updateNote(this, note)
+                finish()
             }
         }
         if (item?.itemId == R.id.action_erase) {
@@ -72,7 +71,7 @@ class NoteActivity : AppCompatActivity() {
         note = if (extra != null) {
             extra.get("note") as NoteModel
         } else
-            NoteModel()
+            NoteModel(null,null,null,null)
         noteText.setText(note.text)
         if (note.category != null && note.category?.color != null) {
             when (note.category?.color) {

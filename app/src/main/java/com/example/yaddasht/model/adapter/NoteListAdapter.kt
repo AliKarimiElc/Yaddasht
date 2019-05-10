@@ -23,15 +23,14 @@ class NoteListAdapter(private var list: List<NoteModel>, private val context: Co
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         holder.bindItem(list[position])
         holder.deleteBtn.setOnClickListener {
-            val room = ApplicationRoom.getInstance(context)
             val alertDialogBuilder = AlertDialog.Builder(context)
             alertDialogBuilder.setTitle("حذف یادداشت")
                 .setMessage("آیا می خواهید این یادداشت را حذف کنید؟").setCancelable(false)
-                .setPositiveButton("بله") { dialog, id ->
+                .setPositiveButton("بله") { _, _ ->
                     NoteService.deleteNote(context, list[position])
-                    list = NoteService.getNoteList(context,NoteService.noteSorting)
+                    list = NoteService.getNoteList(context, NoteService.noteSorting)
                     notifyDataSetChanged()
-                }.setNegativeButton("خیر") { dialog, id ->
+                }.setNegativeButton("خیر") { _, _ ->
 
                 }
             val dialog = alertDialogBuilder.create()
@@ -58,7 +57,7 @@ class NoteListAdapter(private var list: List<NoteModel>, private val context: Co
                     StickerColor.Orange -> {
                         textNote.background = context.getDrawable(R.drawable.card_view_orange)
                         listCard.background = context.getDrawable(R.drawable.card_view_orange)
-                        deleteBtn.background= context.getDrawable(R.drawable.card_view_orange)
+                        deleteBtn.background = context.getDrawable(R.drawable.card_view_orange)
                     }
                     StickerColor.White -> {
                         textNote.background = context.getDrawable(R.drawable.card_view_background)

@@ -4,17 +4,7 @@ import android.arch.persistence.room.*
 import java.io.Serializable
 
 @Entity
-class NoteModel : Serializable {
-
-    @PrimaryKey(autoGenerate = true)
-    var noteId: Int? = null
-
-    @ColumnInfo(name = "NoteText")
-    var text: String? = null
-
-    @ColumnInfo(name = "DateTime")
-    var dateTime: String? = null
-
-    @Embedded
-    var category: CategoryModel? = null
-}
+data class NoteModel(
+    @PrimaryKey(autoGenerate = true) var noteId: Int?, @ColumnInfo(name = "NoteText") var text: String?,
+    @ColumnInfo(name = "DateTime") var dateTime: String?, @Embedded var category: CategoryModel?
+) : Serializable

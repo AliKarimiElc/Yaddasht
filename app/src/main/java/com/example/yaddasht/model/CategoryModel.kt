@@ -3,11 +3,7 @@ package com.example.yaddasht.model
 import android.arch.persistence.room.*
 import java.io.Serializable
 
-@Entity
 class CategoryModel : Serializable {
-
-    @PrimaryKey(autoGenerate = true)
-    var catId: Int? = null
 
     @ColumnInfo(name = "CategoryName")
     var name: String? = null
@@ -41,7 +37,6 @@ class StickerColorConverter {
             else -> throw IllegalArgumentException("Could not recognize workStatus")
         }
     }
-
 
     @TypeConverter
     fun toInteger(color: StickerColor): Int? {

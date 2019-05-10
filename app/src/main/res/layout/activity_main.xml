@@ -6,7 +6,7 @@
         android:background="@color/mainBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".NoteListActivity">
     <android.support.v7.widget.RecyclerView
             android:background="@color/mainBackground"
             android:paddingTop="5dp"

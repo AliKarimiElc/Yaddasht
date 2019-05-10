@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 7,
-    "identityHash": "3b1e1fdf80b7a23ef4c7968ac7fa81bf",
+    "identityHash": "024246950004e5a038831c4050386105",
     "entities": [
       {
         "tableName": "NoteModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`noteId` INTEGER PRIMARY KEY AUTOINCREMENT, `NoteText` TEXT, `DateTime` TEXT, `catId` INTEGER, `CategoryName` TEXT, `CategoryColor` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`noteId` INTEGER PRIMARY KEY AUTOINCREMENT, `NoteText` TEXT, `DateTime` TEXT, `catId` INTEGER, `CategoryName` TEXT, `CategoryColor` TEXT)",
         "fields": [
           {
             "fieldPath": "noteId",
@@ -41,7 +41,7 @@
           {
             "fieldPath": "category.color",
             "columnName": "CategoryColor",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
             "notNull": false
           }
         ],
@@ -56,7 +56,7 @@
       },
       {
         "tableName": "CategoryModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`catId` INTEGER PRIMARY KEY AUTOINCREMENT, `CategoryName` TEXT, `CategoryColor` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`catId` INTEGER PRIMARY KEY AUTOINCREMENT, `CategoryName` TEXT, `CategoryColor` TEXT)",
         "fields": [
           {
             "fieldPath": "catId",
@@ -73,7 +73,7 @@
           {
             "fieldPath": "color",
             "columnName": "CategoryColor",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
             "notNull": false
           }
         ],
@@ -89,7 +89,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"3b1e1fdf80b7a23ef4c7968ac7fa81bf\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"024246950004e5a038831c4050386105\")"
     ]
   }
 }
