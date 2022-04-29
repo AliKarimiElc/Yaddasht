@@ -23,4 +23,4 @@ This project write in Kotlin
 ![edit page](edit.png)
 
 ### Select color on save :
-![edit page]("Selectcolor.png")
+![Select color on save]("Selectcolor.png")
